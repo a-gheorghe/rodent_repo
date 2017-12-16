@@ -1,6 +1,5 @@
-import Hello from './Hello';
+import RaspRoot from './RaspRoot';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<Hello/>, document.getElementById('reactEntry'));
-
+ReactDOM.render(<RaspRoot/>, document.getElementById('reactEntry'));
