@@ -1,5 +1,5 @@
-var webpack = require('webpack');  
-module.exports = {  
+var webpack = require('webpack');
+module.exports = {
   entry: [
     "./js/app.js"
   ],
@@ -16,9 +16,16 @@ module.exports = {
           presets: ['es2015', 'react']
         },
         exclude: /node_modules/
+      },
+      {
+        test: /\.s?css$/,
+        loader: 'style-loader!css-loader!sass-loader'
       }
     ]
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.css']
+  }, 
   plugins: [
   ]
 };

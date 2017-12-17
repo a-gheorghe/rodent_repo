@@ -7,7 +7,7 @@ class RaspHome extends React.Component {
   render() {
     return (
       <div>
-        HOME HOME HOME HOME HOME hello
+        HOME HOME HOME HOME HOME hello<br/>
         <Link to="/raspLogin">Login</Link>
       </div>
     );
