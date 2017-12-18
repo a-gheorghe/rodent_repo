@@ -34,7 +34,7 @@ class RaspSelectedExp extends React.Component {
     return (
         <div>
           This particular experiment is called {this.state.experimentName}
-          and has the following groups: {this.state.treatmentGroups.map((group) => <RaspTreatmentGroup key={group.id} treatment={group}/>)}
+          and has the following groups: {this.state.treatmentGroups.map((group) => <RaspTreatmentGroup key={group.id} expName = {this.state.experimentName} treatment={group}/>)}
         </div>
     );
   }

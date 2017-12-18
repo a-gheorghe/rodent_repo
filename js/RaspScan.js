@@ -7,7 +7,7 @@
 //     'Content-Type': 'application/json',
 //   },
 // };
-// 
+//
 //
 // class RaspScan extends React.Component {
 //   constructor(props) {
@@ -16,7 +16,7 @@
 //       rfid: ''
 //     };
 //   }
-//
+// ******** or try in component did mount *************
 //   scanningFunc() {
 //     axios.get('/raspScan').then(response => {
 //       console.log(response, 'Here is response')

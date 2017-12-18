@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './styles/RaspTreatmentGroup.css';
+import RaspCage from './RaspCage.js'
 
 const config = {
   withCredentials: true,
@@ -22,12 +23,12 @@ class RaspTreatmentGroup extends React.Component {
   }
 
   render() {
-  console.log(this.props.treatment)
+    console.log('RaspTreatmentGroup this.props', this.props)
     return (
         <div className="divStyle">
           {this.props.treatment.name}
 
-          {this.props.treatment.cages.map((cage) => <li>{cage.name}</li>)}
+          {this.props.treatment.cages.map((cage) => <RaspCage key={cage.id} expName={this.props.expName} cage={cage}/>)}
 
         </div>
     );
