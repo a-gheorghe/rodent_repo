@@ -6,22 +6,32 @@ app = Flask(__name__)
 #     python code Here
 #     return scannedNumber
 
-@app.route('/testing')
+# @app.route('/testing')
+# def testing():
+#     code = 5999933
+#     return jsonify({
+#     'tag': code
+#     })
+#
+# @app.route('/raspExperiments/5/B1')
+# def maybe():
+#     return render_template('index.html')
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/testing/')
 def testing():
-    code = 5999933
+    code = 2930271
     return jsonify({
     'tag': code
     })
 
-@app.route('/raspExperiments/5/B1')
-def maybe():
-    return render_template('index.html')
-
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def catch_all(path):
-#   return render_template('index.html')
+@app.route('/<path:others>')
+def catch_all(others):
+  return render_template('index.html')
 
 if __name__ == '__main__':
   app.run(debug=True)
