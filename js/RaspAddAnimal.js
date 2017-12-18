@@ -14,12 +14,37 @@ class RaspAddAnimal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rfid: 111,
+      rfid: '',
       age: '',
       sex: '',
-      notes:''
+      notes:'',
+      scanned: false
     }
   }
+
+  // componentDidMount(){
+  //   axios.get('/testing')
+  //   .then((response) => {
+  //     this.setState({rfid: response.data.tag})
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // }
+
+  scanAnimal(){
+    axios.get('/testing')
+    .then((response) => {
+      this.setState({
+        rfid: response.data.tag,
+        scanned: true
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
 
   handleChange(event) {
     let change = Object.assign({}, this.state)
@@ -27,16 +52,21 @@ class RaspAddAnimal extends React.Component {
     this.setState(change)
   }
 
+  // handleSubmit(event) {
+  //   event.preventDefault()
+  //   axios.post('http://localhost:3000/new/mouse', {
+  //     "sex": this.state.sex,
+  //     "age": this.state.age,
+  //     "notes": this.state.notes,
+  //     "cageId": 5,
+  //     "id": this.state.rfid
+  //   })
+  //   .then(response => console.log(response))
+  // }
+
   handleSubmit(event) {
     event.preventDefault()
-    axios.post('http://localhost:3000/new/mouse', {
-      "sex": this.state.sex,
-      "age": this.state.age,
-      "notes": this.state.notes,
-      "cageId": 5,
-      "id": this.state.rfid
-    })
-    .then(response => console.log(response))
+
   }
 
   render() {
@@ -47,10 +77,11 @@ class RaspAddAnimal extends React.Component {
             RFID: <input type="text" name="rfid" value={this.state.rfid}/> */}
             <div> Add a New Animal </div>
             <form onSubmit={(event) => this.handleSubmit(event)}>
-
-              <label> ExperimentID: </label> {this.props.match.params.id} <br/>
-              <label> Experiment Name: </label> I don't know how to pass this in <br/>
-              <label> Cage: </label> {this.props.match.params.name} <br/>
+              <button onClick={() => this.scanAnimal()}> Scan animal </button>
+              <label> RFID: </label> <input type="text" name="rfid" value={this.state.rfid} /> <br/>
+              <label> ExperimentID: </label> <input type="text" name="experimentID" value={this.props.match.params.id}/> <br/>
+              <label> Experiment Name: </label> <input type="text" name="experimentName" defaultValue="How to pass this in?"/> <br/>
+              <label> Cage: </label> <input type="text" name="cage" defaultValue={this.props.match.params.name}/> <br/>
               <label> Age: </label> <input type="text" name="age" value={this.state.age} onChange={this.handleChange.bind(this)} /> <br/>
               <label> Sex: </label> <input type="text" name="sex" value={this.state.sex} onChange={this.handleChange.bind(this)} /> <br/>
               <label> Notes: </label> <input type="text" name="notes" value={this.state.notes} onChange={this.handleChange.bind(this)} /> <br/>
