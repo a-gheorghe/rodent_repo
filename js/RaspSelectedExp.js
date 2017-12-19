@@ -20,7 +20,7 @@ class RaspSelectedExp extends React.Component {
   }
 
   componentWillMount() {
-    axios.get('http://localhost:3000/api/experiment/' + this.props.match.params.id, config).then(response => {
+    axios.get('http://b577bdfc.ngrok.io/api/experiment/' + this.props.match.params.id, config).then(response => {
       this.setState({
         experimentName: response.data.experiment.name,
         treatmentGroups: response.data.experiment.treatment_groups
