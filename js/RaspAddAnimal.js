@@ -22,17 +22,10 @@ class RaspAddAnimal extends React.Component {
     }
   }
 
-  // componentDidMount(){
-  //   axios.get('/testing')
-  //   .then((response) => {
-  //     this.setState({rfid: response.data.tag})
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // }
+
 
   scanAnimal(){
+    console.log("scanning")
     axios.get('/testing')
     .then((response) => {
       this.setState({
@@ -53,31 +46,26 @@ class RaspAddAnimal extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
+    console.log("sending to database")
     axios.post('http://b577bdfc.ngrok.io/new/mouse', {
       "sex": this.state.sex,
       "age": this.state.age,
       "notes": this.state.notes,
-      "cageId": this.props.match.params.name,
+      "cageId": 5,
       "id": this.state.rfid
     })
     .then(response => console.log(response))
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
-
-  }
 
   render() {
     console.log('adding animals this.props', this.props)
         return (
           <div>
-            {/* <button onClick = {(event) => this.scanningFunc(event)}> Click when ready to scan </button>
-            RFID: <input type="text" name="rfid" value={this.state.rfid}/> */}
             <div> Add a New Animal </div>
             <form onSubmit={(event) => this.handleSubmit(event)}>
-              <button onClick={() => this.scanAnimal()}> Scan animal </button>
+              <button type="button" onClick={() => this.scanAnimal()}> Scan animal </button>
               <label> RFID: </label> <input type="text" name="rfid" value={this.state.rfid} /> <br/>
               <label> ExperimentID: </label> <input type="text" name="experimentID" value={this.props.match.params.id}/> <br/>
               <label> Experiment Name: </label> <input type="text" name="experimentName" defaultValue="How to pass this in?"/> <br/>

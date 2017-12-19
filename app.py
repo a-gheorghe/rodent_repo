@@ -27,12 +27,12 @@ def testing():
 
     import RPi.GPIO as GPIO
     import serial
-
+ 
     ser = serial.Serial('/dev/serial0', 9600)
 
     GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
-    rfid = 22
+    rfid = 13
     GPIO.setup(rfid, GPIO.IN)
 
     junk1 = ser.read(1)
