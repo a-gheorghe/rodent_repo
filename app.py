@@ -24,9 +24,24 @@ def index():
 
 @app.route('/testing/')
 def testing():
-    code = 2930271
+
+    import RPi.GPIO as GPIO
+    import serial
+
+    ser = serial.Serial('/dev/serial0', 9600)
+
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
+    rfid = 22
+    GPIO.setup(rfid, GPIO.IN)
+
+    junk1 = ser.read(1)
+    rawtag = ser.read(10)
+    tag = int(rawtag, 16)
+    junk2 = ser.read(5)
+
     return jsonify({
-    'tag': code
+    'tag': tag
     })
 
 @app.route('/<path:others>')
@@ -35,25 +50,3 @@ def catch_all(others):
 
 if __name__ == '__main__':
   app.run(debug=True)
-
-
-# @app.route('/raspScan')
-# def scan_animal():
-#
-#     import RPi.GPIO as GPIO
-#     import serial
-#     import requests
-#
-#     ser = serial.Serial('/dev/serial0', 9600)
-#
-#     GPIO.setmode(GPIO.BOARD)
-#     GPIO.setwarnings(False)
-#     rfid = 22
-#     GPIO.setup(rfid, GPIO.IN)
-#
-#     junk1 = ser.read(1)
-#     rawtag = ser.read(10)
-#     tag = int(rawtag, 16)
-#     junk2 = ser.read(5)
-#
-#     return (tag)

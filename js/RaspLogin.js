@@ -19,10 +19,11 @@ class RaspLogin extends React.Component {
 
   submit(event) {
     event.preventDefault();
+    console.log('working')
     axios.post('http://b577bdfc.ngrok.io/api/login',  {
         username: event.target.username.value,
         password: event.target.password.value
-    }, config).then(response => {
+    },config).then(response => {
       console.log(response)
       if (response.data) {
         this.setState({raspLoggedIn: true});
