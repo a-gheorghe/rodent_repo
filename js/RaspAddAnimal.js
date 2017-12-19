@@ -52,17 +52,17 @@ class RaspAddAnimal extends React.Component {
     this.setState(change)
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault()
-  //   axios.post('http://localhost:3000/new/mouse', {
-  //     "sex": this.state.sex,
-  //     "age": this.state.age,
-  //     "notes": this.state.notes,
-  //     "cageId": 5,
-  //     "id": this.state.rfid
-  //   })
-  //   .then(response => console.log(response))
-  // }
+  handleSubmit(event) {
+    event.preventDefault()
+    axios.post('http://b577bdfc.ngrok.io/new/mouse', {
+      "sex": this.state.sex,
+      "age": this.state.age,
+      "notes": this.state.notes,
+      "cageId": this.props.match.params.name,
+      "id": this.state.rfid
+    })
+    .then(response => console.log(response))
+  }
 
   handleSubmit(event) {
     event.preventDefault()
