@@ -4,4 +4,4 @@ node_modules
 static/bundle.js
 rodentenv
 pirodentenv
-static/bundlejs.map
+static/bundle.js.map
