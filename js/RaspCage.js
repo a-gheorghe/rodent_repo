@@ -11,6 +11,7 @@ const config = {
 };
 
 
+
 class RaspCage extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ class RaspCage extends React.Component {
 
 
   render() {
+    console.log('rasp cage this.props', this.props)
     return (
       this.state.selected ? <Redirect to={`/raspExperiments/${this.props.cage.experimentId}/${this.props.cage.name}`} /> :
         <div className="cageDiv" onClick={() => this.setState({ selected: true })}>
