@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import './styles/RaspAddAnimal.css';
+import './styles/RaspTracking.css';
 
 
 class RaspTracking extends React.Component {
