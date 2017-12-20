@@ -18,7 +18,7 @@ class RaspAddAnimal extends React.Component {
       age: '',
       sex: '',
       notes:'',
-      scanned: false
+      scanned: false,
       message: ''
     }
   }
@@ -58,14 +58,14 @@ class RaspAddAnimal extends React.Component {
     })
     .then((response) => {
       this.setState({
-        message: 'Successfully added new mouse!'
+        message: 'Successfully added new mouse!',
         rfid: '',
         age: '',
         sex: '',
         notes:'',
         scanned: false,
       })
-    }
+    })
     .catch((error) => {
       this.setState({
         message: 'Oops. Something went wrong. Your error was:' + error
@@ -89,7 +89,7 @@ class RaspAddAnimal extends React.Component {
               <label> Sex: </label> <input type="text" name="sex" value={this.state.sex} onChange={this.handleChange.bind(this)} /> <br/>
               <label> Notes: </label> <input type="text" name="notes" value={this.state.notes} onChange={this.handleChange.bind(this)} /> <br/>
               <input type="submit" value="Add Animal" />
-              {this.state.message} ? <p> {this.state.message} </p> : ''
+              {this.state.message ? <p> {this.state.message} </p> : ''}
             </form>
           </div>
         );
