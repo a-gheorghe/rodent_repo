@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 // import './styles/RaspAddAnimal.css';
 
 const config = {
@@ -65,7 +66,7 @@ class RaspAddAnimal extends React.Component {
         notes:'',
         scanned: false,
       })
-    }
+    })
     .catch((error) => {
       this.setState({
         message: 'Oops. Something went wrong. Your error was:' + error
@@ -89,6 +90,8 @@ class RaspAddAnimal extends React.Component {
               <label> Sex: </label> <input type="text" name="sex" value={this.state.sex} onChange={this.handleChange.bind(this)} /> <br/>
               <label> Notes: </label> <input type="text" name="notes" value={this.state.notes} onChange={this.handleChange.bind(this)} /> <br/>
               <input type="submit" value="Add Animal" />
+              <Link to="/raspTracking">Track Animals</Link>
+
               {this.state.message ? <p> {this.state.message} </p> : ''}
             </form>
           </div>

@@ -6,6 +6,7 @@ import RaspExperiments from './RaspExperiments.js';
 import RaspSelectedExp from './RaspSelectedExp.js';
 import RaspAddAnimal from './RaspAddAnimal.js';
 import RaspHome from './RaspHome.js';
+import RaspTracking from './RaspTracking.js'
 
 class RaspRoot extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class RaspRoot extends React.Component {
             <Route path='/raspExperiments' exact component={RaspExperiments} />
             <Route path='/raspExperiments/:id' exact component={RaspSelectedExp}/>
             <Route path='/raspExperiments/:id/:name' exact component={RaspAddAnimal}/>
+            <Route path='/raspTracking' component={RaspTracking} />
             <Route path='/' exact component={RaspHome} />
           </Switch>
         </BrowserRouter>
