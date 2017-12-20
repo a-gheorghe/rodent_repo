@@ -35,10 +35,16 @@ def tracking():
     hall = 22
     GPIO.setup(hall, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     rfid = 13
+    button = 31
     GPIO.setup(rfid, GPIO.IN)
+    button_pressed = False
+
 
     def begin():
         print("Start running")
+
+    def exit_while_loop():
+        button_pressed = True
 
     def checkClose(last_rev, count, start_time, tag):
         current_time = datetime.now()
@@ -68,7 +74,7 @@ def tracking():
             tag = None
             rfid_reading = False
 
-            while True:
+            while (button_pressed == False):
                     if (rfid_reading == False and GPIO.input(rfid)):
                             rfid_reading = True
                             print("Entering 2")
@@ -111,6 +117,7 @@ def tracking():
         begin()
         try:
             GPIO.add_event_detect(hall, GPIO.RISING)
+            GPIO.add_event_detect(button, GPIO.RISING, callback='exit_while_loop')
             loop()
         except KeyboardInterrupt:
             destroy()
