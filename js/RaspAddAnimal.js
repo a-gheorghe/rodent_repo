@@ -89,6 +89,7 @@ class RaspAddAnimal extends React.Component {
               <label> Sex: </label> <input type="text" name="sex" value={this.state.sex} onChange={this.handleChange.bind(this)} /> <br/>
               <label> Notes: </label> <input type="text" name="notes" value={this.state.notes} onChange={this.handleChange.bind(this)} /> <br/>
               <input type="submit" value="Add Animal" />
+              
               {this.state.message} ? <p> {this.state.message} </p> : ''
             </form>
           </div>
