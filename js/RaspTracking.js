@@ -12,16 +12,18 @@ class RaspTracking extends React.Component {
     }
   }
 
-  componentDidMount(){
+
+  trackAnimals(){
     console.log("tracking")
     axios.get('/tracking')
     .then((response) => {
+      console.log(response)
       this.setState({
         tracking: true
       })
     })
     .catch((error) => {
-      console.log(error)
+      console.log("oops", error)
     })
   }
 
@@ -30,6 +32,8 @@ class RaspTracking extends React.Component {
         return (
           <div>
             <div> Animals are running </div>
+            <button type="button" onClick={() => this.trackAnimals()}> Track Animals </button>
+
           </div>
         );
   }
