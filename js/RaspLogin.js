@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router';
 import axios from 'axios';
+import './styles/RaspLogin.css';
+
 
 const config = {
   withCredentials: true,
@@ -37,9 +39,9 @@ class RaspLogin extends React.Component {
     return (
       this.state.raspLoggedIn ?
         <Redirect to="/raspExperiments"/> :
-        <div>
-          <form onSubmit={event => this.submit(event)}>
-            <h3>Login</h3>
+        <div className="top-level-login">
+          <form className="form-login" onSubmit={event => this.submit(event)}>
+            <h3 className="title-login">Login</h3>
             <input type="text" name="username" placeholder="Username" />
             <input type="password" name="password" placeholder="Password" />
             <input type="submit" />

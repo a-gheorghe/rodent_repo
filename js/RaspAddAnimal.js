@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-// import './styles/RaspAddAnimal.css';
+import './styles/RaspAddAnimal.css';
 
 const config = {
   withCredentials: true,
@@ -26,19 +26,29 @@ class RaspAddAnimal extends React.Component {
 
 
 
+  // scanAnimal(){
+  //   console.log("scanning")
+  //   axios.get('/testing')
+  //   .then((response) => {
+  //     this.setState({
+  //       rfid: response.data.tag,
+  //       scanned: true
+  //     })
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // }
+
+  // practice scan for no pi
   scanAnimal(){
     console.log("scanning")
-    axios.get('/testing')
-    .then((response) => {
       this.setState({
-        rfid: response.data.tag,
+        rfid: 4333,
         scanned: true
       })
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+    }
+
 
 
   handleChange(event) {
@@ -79,10 +89,11 @@ class RaspAddAnimal extends React.Component {
     console.log('adding animals this.props', this.props)
         return (
           <div>
-            <div> Add a New Animal </div>
-            <form onSubmit={(event) => this.handleSubmit(event)}>
-              <button type="button" onClick={() => this.scanAnimal()}> Scan animal </button>
-              <label> RFID: </label> <input type="text" name="rfid" value={this.state.rfid} /> <br/>
+            <div className="title"> Add a New Animal </div>
+            <button type="button" onClick={() => this.scanAnimal()}> Scan animal </button>
+            <label> RFID: </label> <input type="text" name="rfid" value={this.state.rfid} /> <br/>
+
+            {this.state.scanned ? (<form onSubmit={(event) => this.handleSubmit(event)}>
               <label> ExperimentID: </label> <input type="text" name="experimentID" value={this.props.match.params.id}/> <br/>
               <label> Experiment Name: </label> <input type="text" name="experimentName" defaultValue="How to pass this in?"/> <br/>
               <label> Cage: </label> <input type="text" name="cage" defaultValue={this.props.match.params.name}/> <br/>
@@ -93,7 +104,7 @@ class RaspAddAnimal extends React.Component {
               <Link to="/raspTracking">Track Animals</Link>
 
               {this.state.message ? <p> {this.state.message} </p> : ''}
-            </form>
+            </form> ) : ''}
           </div>
         );
   }
