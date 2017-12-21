@@ -61,7 +61,7 @@ def tracking():
     def begin():
         print("Start running")
 
-    def checkClose(last_rev, count, start_time, tag):
+    def checkClose(last_rev, count, start_time, tag, session_data):
         current_time = datetime.now()
         if  current_time - last_rev > timedelta(seconds = 5):
             revolutions = round(count)
