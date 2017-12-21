@@ -64,14 +64,14 @@ def index():
 def tracking():
     ser = serial.Serial('/dev/serial0', 9600)
     button_pressed[0] = False
-    session_data = False
+    # session_data = False
 
 
 
     def begin():
         print("Start running")
 
-    def checkClose(last_rev, count, start_time, tag, session_data):
+    def checkClose(last_rev, count, start_time, tag):
         current_time = datetime.now()
         if  current_time - last_rev > timedelta(seconds = 5):
             revolutions = round(count)
@@ -112,7 +112,7 @@ def tracking():
 
                     if (rfid_reading == True):
                             if last_rev is not None:
-                                    check_close_result = checkClose(last_rev, count, start_time, tag, session_data)
+                                    check_close_result = checkClose(last_rev, count, start_time, tag)
                                     if check_close_result:
                                             session = False
                                             last_rev = None
@@ -120,7 +120,6 @@ def tracking():
                                             rfid_reading = False
                                             tag = None
                                             start_time = None
-                                            session_data = session_data
 
                             if GPIO.event_detected(hall):
                                     print('magnet is detected')
@@ -143,7 +142,7 @@ def tracking():
         try:
             loop()
             return jsonify({
-                "message": session_data
+                "message": "This is mock session data"
                 })
 
         except KeyboardInterrupt:
