@@ -84,7 +84,7 @@ def tracking():
                     "end_time": end_time,
                     "mouseId": tag
                     }
-            r = requests.post('https://b577bdfc.ngrok.io/new/session', data = session_data)
+            r = requests.post('https://hamster-companion.herokuapp.com/new/session', data = session_data)
             print(r.text)
             return True
 
