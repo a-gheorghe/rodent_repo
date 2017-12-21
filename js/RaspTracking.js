@@ -15,7 +15,7 @@ class RaspTracking extends React.Component {
 
   trackAnimals(){
     console.log("tracking")
-    axios.get('/tracking')
+    axios.get('/raspTracking')
     .then((response) => {
       console.log(response)
       this.setState({
