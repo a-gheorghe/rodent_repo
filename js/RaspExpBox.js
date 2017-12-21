@@ -20,20 +20,15 @@ class RaspExpBox extends React.Component {
     };
   }
 
-// chooseSelected(){
-//   this.setState({
-//     selected: true
-//   })
-// }
 
   render() {
+    console.log('inside raspexpbox this.props', this.props)
     return (
       this.state.selected ? <Redirect to={`/raspExperiments/${this.props.experiment.id}`} /> :
         // <div className="box-wrapper">
           <div className="display-box" onClick={() => this.setState({ selected: true })}>
-            Experiment ID: {this.props.experiment.id} <br/>
-            Experiment Name: {this.props.experiment.name}<br/>
-            Experiment Description: {this.props.experiment.description}
+            <b> Experiment Name (ID):</b> <br/> {this.props.experiment.name} ({this.props.experiment.id})<br/><br/>
+            <b> Experiment Description: </b> <br/> {this.props.experiment.description}
           </div>
         // </div>
     );
