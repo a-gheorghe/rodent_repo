@@ -16,10 +16,10 @@ class RaspTracking extends React.Component {
 
   trackAnimals(){
     console.log("tracking")
-    axios.get('/tracking')
     this.setState({
       tracking: true
     })
+    axios.get('/tracking')
     .then((response) => {
       console.log(response)
       this.setState({
@@ -28,6 +28,9 @@ class RaspTracking extends React.Component {
       })
     })
     .catch((error) => {
+      this.setState({
+        tracking: false,
+      })
       console.log("oops", error)
     })
   }
