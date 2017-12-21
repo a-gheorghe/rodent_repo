@@ -102,8 +102,8 @@ class RaspAddAnimal extends React.Component {
               <input type="submit" value="Add Animal" />
               <Link to="/raspTracking">Track Animals</Link>
 
-              {this.state.message ? <p> {this.state.message} </p> : ''}
             </form> ) : ''}
+            {this.state.message ? <p> {this.state.message} </p> : ''}
           </div>
         );
   }
