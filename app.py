@@ -88,6 +88,7 @@ def tracking():
             start_time = None
             tag = None
             rfid_reading = False
+            session_data = False
 
             while (button_pressed[0] == False):
                     if (rfid_reading == False and GPIO.input(rfid)):
