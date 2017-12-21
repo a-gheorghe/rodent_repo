@@ -103,7 +103,7 @@ def tracking():
 
                     if (rfid_reading == True):
                             if last_rev is not None:
-                                    check_close_result = checkClose(last_rev, count, start_time, tag)
+                                    check_close_result = checkClose(last_rev, count, start_time, tag, session_data)
                                     if check_close_result:
                                             session = False
                                             last_rev = None
@@ -111,6 +111,7 @@ def tracking():
                                             rfid_reading = False
                                             tag = None
                                             start_time = None
+                                            session_data = session_data
 
                             if GPIO.event_detected(hall):
                                     print('magnet is detected')
@@ -133,7 +134,7 @@ def tracking():
         try:
             loop()
             return jsonify({
-                "message": "Ended after loop with button pressed"
+                "message": session_data
                 })
 
         except KeyboardInterrupt:
