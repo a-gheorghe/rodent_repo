@@ -95,8 +95,7 @@ class RaspAddAnimal extends React.Component {
 
             {this.state.scanned ? (<form onSubmit={(event) => this.handleSubmit(event)}>
               <label> ExperimentID: </label> <input className="add-inputs" type="text" name="experimentID" value={this.props.match.params.id}/> <br/>
-              <label> Experiment Name: </label> <input className="add-inputs" type="text" name="experimentName" defaultValue="How to pass this in?"/> <br/>
-              <label> Cage: </label> <input className="add-inputs" type="text" name="cage" defaultValue={this.props.match.params.name}/> <br/>
+              <label> Cage: </label> <input className="add-inputs" type="text" name="cage" defaultValue={this.props.match.params.cageId}/> <br/>
               <label> Age: </label> <input className="add-inputs" type="text" name="age" value={this.state.age} onChange={this.handleChange.bind(this)} /> <br/>
               <label> Sex: </label> <input className="add-inputs" type="text" name="sex" value={this.state.sex} onChange={this.handleChange.bind(this)} /> <br/>
               <label> Notes: </label> <input className="add-inputs" type="text" name="notes" value={this.state.notes} onChange={this.handleChange.bind(this)} /> <br/>
