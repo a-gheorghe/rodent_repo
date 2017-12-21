@@ -149,7 +149,7 @@ def tracking():
 #         except KeyboardInterrupt:
 #             destroy()
 
-@app.route('/testing/')
+@app.route('/addAnimal/')
 def testing():
 
     import RPi.GPIO as GPIO

@@ -25,29 +25,29 @@ class RaspAddAnimal extends React.Component {
   }
 
 
-
-  // scanAnimal(){
-  //   console.log("scanning")
-  //   axios.get('/testing')
-  //   .then((response) => {
-  //     this.setState({
-  //       rfid: response.data.tag,
-  //       scanned: true
-  //     })
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // }
-
-  // practice scan for no pi
+/// ****** REAL SCAN FUNC ************
   scanAnimal(){
     console.log("scanning")
+    axios.get('/addAnimal')
+    .then((response) => {
       this.setState({
-        rfid: 4333,
+        rfid: response.data.tag,
         scanned: true
       })
-    }
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  // practice scan for no pi
+  // scanAnimal(){
+  //   console.log("scanning")
+  //     this.setState({
+  //       rfid: 4333,
+  //       scanned: true
+  //     })
+  //   }
 
 
 
