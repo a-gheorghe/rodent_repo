@@ -23,7 +23,7 @@ class RaspSelectedExp extends React.Component {
   }
 
   componentWillMount() {
-    axios.get('http://4bc7328c.ngrok.io/api/experiment/' + this.props.match.params.id, config).then(response => {
+    axios.get('https://hamster-companion.herokuapp.com/api/experiment/' + this.props.match.params.id, config).then(response => {
       console.log('inside HERE HERE HERE', response.data)
       this.setState({
         experimentName: response.data.experiment.name,

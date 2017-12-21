@@ -60,7 +60,7 @@ class RaspAddAnimal extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log("sending to database")
-    axios.post('http://4bc7328c.ngrok.io/new/mouse', {
+    axios.post('https://hamster-companion.herokuapp.com/new/mouse', {
       "sex": this.state.sex,
       "age": this.state.age,
       "notes": this.state.notes,

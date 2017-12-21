@@ -21,7 +21,7 @@ class RaspExperiments extends React.Component {
   }
 
   componentWillMount() {
-    axios.get('http://4bc7328c.ngrok.io/api/experiments', config).then(response => {
+    axios.get('https://hamster-companion.herokuapp.com/api/experiments', config).then(response => {
       console.log(response.data, 'Here is response.data')
       this.setState({experiments: response.data})
     }).catch(error => console.log('you have an', error))
