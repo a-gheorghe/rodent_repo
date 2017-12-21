@@ -23,7 +23,8 @@ class RaspSelectedExp extends React.Component {
   }
 
   componentWillMount() {
-    axios.get('http://b577bdfc.ngrok.io/api/experiment/' + this.props.match.params.id, config).then(response => {
+    axios.get('http://4bc7328c.ngrok.io/api/experiment/' + this.props.match.params.id, config).then(response => {
+      console.log('inside HERE HERE HERE', response.data)
       this.setState({
         experimentName: response.data.experiment.name,
         treatmentGroups: response.data.experiment.treatment_groups
@@ -36,10 +37,14 @@ class RaspSelectedExp extends React.Component {
   render() {
     return (
         <div className="body-selected-exp">
-          <span className="bold-heading"> Experiment: </span>
-          <span className="selected-exp-title"> {this.state.experimentName} </span>
-          <div className="all-groups-container">
-            <div className="all-groups"> and has the following groups: {this.state.treatmentGroups.map((group) => <RaspTreatmentGroup key={group.id} expName = {this.state.experimentName} treatment={group}/>)} </div>
+            <div className="this-title">
+              <span className="bold-heading"> Experiment: </span>
+              <span className="selected-exp-title"> {this.state.experimentName} </span>
+            </div>
+            <div className="all-groups-container">
+              <div className="all-groups"> {this.state.treatmentGroups.map((group) =>
+              <RaspTreatmentGroup key={group.id} expName = {this.state.experimentName} treatment={group}/>)}
+            </div>
           </div>
         </div>
     );

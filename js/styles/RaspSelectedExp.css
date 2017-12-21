@@ -2,7 +2,8 @@
   background-color: black;
   text-align: center;
   height: 100%;
-  /* display: flex */
+  display: flex;
+  flex-direction: column;
 }
 
 .selected-exp-title {
@@ -10,17 +11,23 @@
   color: #7FDBFF;
   font-size: 25px;
   text-shadow: 0px 1px 2px rgba(255,255,255,.5);
-  margin-top: 150px;
+  position: relative;
+  top: 30px;
+}
+
+.this-title {
+  flex: 0.1;
 }
 
 .all-groups-container {
-  border: 5px solid teal;
+  flex:0.9;
 }
 
 .all-groups {
-  border: 3px solid purple;
   text-align: center;
-  /* flex: 1 */
+  display: flex;
+  margin-top: 20px;
+  flex:1;
 }
 
 .bold-heading {
@@ -29,6 +36,6 @@
   font-weight:bold;
   font-size: 25px;
   text-align: center;
-  margin-top: 100px;
-  /* text-shadow: 0px 1px 2px rgba(255,255,255,.5); */
+  position: relative;
+  top: 30px;
 }

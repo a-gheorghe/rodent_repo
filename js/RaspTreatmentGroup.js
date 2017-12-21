@@ -25,12 +25,15 @@ class RaspTreatmentGroup extends React.Component {
   render() {
     console.log('RaspTreatmentGroup this.props', this.props)
     return (
-        <div className="divStyle">
-          {this.props.treatment.name}
-
-          {this.props.treatment.cages.map((cage) => <RaspCage key={cage.id} expName={this.props.expName} cage={cage}/>)}
-
+      <div className="larger-group">
+        <div className="treatment-group">
+          <div className="treat-title">{this.props.treatment.name} </div>
+          <div className="divStyle">
+            {this.props.treatment.cages.map((cage) => <RaspCage key={cage.id} expName={this.props.expName} cage={cage}/>)}
+          </div>
         </div>
+      </div>
+
     );
   }
 };

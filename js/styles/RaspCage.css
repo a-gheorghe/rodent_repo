@@ -1,4 +1,25 @@
 .cageDiv {
-  color: red;
-  border: 2px dotted green;
+  color: #0074D9;
+  flex:1;
+  font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
+  font-size: 20px;
+
+}
+
+.container-cage {
+  /* border: 1px solid navy;
+  margin: 1px; */
+  line-height: 120px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  box-shadow: 1px 1px 2px 1px;
+  /* flex:0.9; */
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
+  display: flex;
+  flex-direction: column;
 }

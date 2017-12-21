@@ -17,9 +17,9 @@ class RaspRoot extends React.Component {
             <Route path='/raspLogin' component={RaspLogin} />
             <Route path='/raspExperiments' exact component={RaspExperiments} />
             <Route path='/raspExperiments/:id' exact component={RaspSelectedExp}/>
-            <Route path='/raspExperiments/:id/:name' exact component={RaspOptionPage}/>
-            <Route path='/raspExperiments/:id/:name/addAnimals' exact component={RaspAddAnimal}/>
-            <Route path='/raspExperiments/:id/:name/trackAnimals' exact component={RaspTracking}/>
+            <Route path='/raspExperiments/:id/:cageId' exact component={RaspOptionPage}/>
+            <Route path='/raspExperiments/:id/:cageId/addAnimals' exact component={RaspAddAnimal}/>
+            <Route path='/raspExperiments/:id/:cageId/trackAnimals' exact component={RaspTracking}/>
             <Route path='/' exact component={RaspHome} />
           </Switch>
         </BrowserRouter>

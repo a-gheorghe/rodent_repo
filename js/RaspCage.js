@@ -22,12 +22,12 @@ class RaspCage extends React.Component {
 
 
   render() {
-    console.log('rasp cage this.props', this.props)
     return (
-      this.state.selected ? <Redirect to={`/raspExperiments/${this.props.cage.experimentId}/${this.props.cage.name}`} /> :
-        <div className="cageDiv" onClick={() => this.setState({ selected: true })}>
-          Experiment name: {this.props.expName}
-          Cage: {this.props.cage.name}
+      this.state.selected ? <Redirect to={`/raspExperiments/${this.props.cage.experimentId}/${this.props.cage.id}`} /> :
+        <div className="container-cage">
+          <div className="cageDiv" onClick={() => this.setState({ selected: true })}>
+            Cage: {this.props.cage.name}
+          </div>
         </div>
     );
   }

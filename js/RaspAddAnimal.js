@@ -60,7 +60,7 @@ class RaspAddAnimal extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log("sending to database")
-    axios.post('http://b577bdfc.ngrok.io/new/mouse', {
+    axios.post('http://4bc7328c.ngrok.io/new/mouse', {
       "sex": this.state.sex,
       "age": this.state.age,
       "notes": this.state.notes,
@@ -88,10 +88,10 @@ class RaspAddAnimal extends React.Component {
   render() {
     console.log('adding animals this.props', this.props)
         return (
-          <div>
-            <div className="title"> Add a New Animal </div>
-            <button type="button" onClick={() => this.scanAnimal()}> Scan animal </button>
-            <label> RFID: </label> <input type="text" name="rfid" value={this.state.rfid} /> <br/>
+          <div className="add-body">
+            <div className="add-title"> Add a New Animal </div>
+            <button className="add-button" type="button" onClick={() => this.scanAnimal()}> Scan animal </button>
+            <label> RFID: </label> <input type="text" name="rfid" value={this.state.rfid} />
 
             {this.state.scanned ? (<form onSubmit={(event) => this.handleSubmit(event)}>
               <label> ExperimentID: </label> <input type="text" name="experimentID" value={this.props.match.params.id}/> <br/>

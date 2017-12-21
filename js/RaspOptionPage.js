@@ -38,15 +38,15 @@ class RaspOptionPage extends React.Component {
   render() {
     console.log(this.props)
     if (this.state.animalButton){
-      return <Redirect to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.name}/addAnimals`} />
+      return <Redirect to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}/addAnimals`} />
     }
     if (this.state.trackingButton){
-      return <Redirect to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.name}/trackAnimals`} />
+      return <Redirect to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}/trackAnimals`} />
     }
         return (
-          <div>
+          <div className="options-body">
               <div className="option-button" onClick={((event) => this.addAnimalPage())}> Add animals </div>
-              <div className="option-button" onClick={((event) => this.trackAnimalPage())}> Start tracking running activity </div>
+              <div className="option-button" onClick={((event) => this.trackAnimalPage())}> Track running </div>
           </div>
         );
   }
