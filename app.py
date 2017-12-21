@@ -132,7 +132,9 @@ def tracking():
         begin()
         try:
             loop()
-            return ("Ended after loop with button pressed")
+            return jsonify({
+                "message": "Ended after loop with button pressed"
+                })
 
         except KeyboardInterrupt:
             destroy()
