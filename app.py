@@ -53,12 +53,12 @@ def index():
     return render_template('index.html')
 
 # for testing /tracking
-@app.route('/tracking/')
-def tracking():
-    session_data = "This is mock session data"
-    return jsonify({
-    "message": session_data
-    })
+# @app.route('/tracking/')
+# def tracking():
+#     session_data = "This is mock session data"
+#     return jsonify({
+#     "message": session_data
+#     })
 
 @app.route('/tracking/')
 def tracking():
