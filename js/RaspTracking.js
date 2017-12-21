@@ -8,18 +8,20 @@ class RaspTracking extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tracking: false
+      tracking: false,
+      message: ''
     }
   }
 
 
   trackAnimals(){
     console.log("tracking")
-    axios.get('/raspTracking')
+    axios.get('/tracking')
     .then((response) => {
       console.log(response)
       this.setState({
-        tracking: true
+        tracking: true,
+        message: response.data.message
       })
     })
     .catch((error) => {
@@ -31,8 +33,9 @@ class RaspTracking extends React.Component {
   render() {
         return (
           <div>
-            <div> Animals are running </div>
-            <button type="button" onClick={() => this.trackAnimals()}> Track Animals </button>
+            {this.state.tracking ?
+            <div> Animals are running </div> :
+            <button type="button" onClick={() => this.trackAnimals()}> Track Animals </button> }
 
           </div>
         );

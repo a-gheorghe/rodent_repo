@@ -52,10 +52,10 @@ GPIO.add_event_detect(button, GPIO.RISING, callback=my_callback, bouncetime= 100
 def index():
     return render_template('index.html')
 
-@app.route('/raspTracking/')
+@app.route('/tracking/')
 def tracking():
     ser = serial.Serial('/dev/serial0', 9600)
-    button_pressed[0] = False   
+    button_pressed[0] = False
 
 
     def begin():
