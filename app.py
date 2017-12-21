@@ -19,7 +19,7 @@ GPIO.setup(rfid, GPIO.IN)
 
 button_pressed = [False]
 
-
+#
 def my_callback (channel):
     button_pressed[0] = True
     print("Pressed button")
@@ -169,6 +169,11 @@ def testing():
     return jsonify({
     'tag': tag
     })
+
+
+# @app.route('/addAnimal/')
+# def testing():
+#     return "hello"
 
 @app.route('/<path:others>')
 def catch_all(others):

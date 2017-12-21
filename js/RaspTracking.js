@@ -38,11 +38,11 @@ class RaspTracking extends React.Component {
 
   render() {
         return (
-          <div>
+          <div className="tracking-body">
             {this.state.tracking ?
             <div> Animals are running </div> :
-            <div>
-              <button type="button" onClick={() => this.trackAnimals()}> Track Animals </button>
+            <div className="button-holding">
+              <button className="tracking-button" type="button" onClick={() => this.trackAnimals()}> Start tracking </button>
               <div> Last session was:{this.state.message} </div>
             </div> }
           </div>

@@ -25,7 +25,7 @@ class RaspAddAnimal extends React.Component {
   }
 
 
-/// ****** REAL SCAN FUNC ************
+/ ****** REAL SCAN FUNC ************
   scanAnimal(){
     console.log("scanning")
     axios.get('/addAnimal')
@@ -44,7 +44,7 @@ class RaspAddAnimal extends React.Component {
   // scanAnimal(){
   //   console.log("scanning")
   //     this.setState({
-  //       rfid: 4333,
+  //       rfid: 98347893,
   //       scanned: true
   //     })
   //   }
@@ -58,13 +58,15 @@ class RaspAddAnimal extends React.Component {
   }
 
   handleSubmit(event) {
+    console.log('this.props inside handleSubmit', this.props)
     event.preventDefault();
     console.log("sending to database")
     axios.post('https://hamster-companion.herokuapp.com/new/mouse', {
       "sex": this.state.sex,
       "age": this.state.age,
       "notes": this.state.notes,
-      "cageId": 5,
+      "cageId": this.props.match.params.cageId,
+      "experimentId": this.props.match.params.id,
       "id": this.state.rfid
     })
     .then((response) => {
