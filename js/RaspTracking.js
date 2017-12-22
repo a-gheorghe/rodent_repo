@@ -87,7 +87,7 @@ trackAnimals(){
                       </fieldset>
                     </form>
                   </div>
-                </div> : <button className="tracking-button" type="button" onClick{() => this.trackAnimal()}> Start Tracking </button> }
+                </div> : <button className="tracking-button" type="button" onClick={() => this.trackAnimal()}> Start Tracking </button> }
               </div>
             </div>
         );
