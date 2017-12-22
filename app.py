@@ -18,7 +18,7 @@ GPIO.setup(button, GPIO.IN)
 GPIO.setup(rfid, GPIO.IN)
 
 button_pressed = [False]
-session_data= {}
+session_data= [{}]
 
 #
 def my_callback (channel):
@@ -64,7 +64,8 @@ def index():
 def tracking():
     ser = serial.Serial('/dev/serial0', 9600)
     button_pressed[0] = False
-    session_data = {}
+    print("resetting session data beginngin tracking")
+    session_data[0] = {}
 
 
 
@@ -78,16 +79,16 @@ def tracking():
             start_time = start_time
             end_time = last_rev
             print("Session ending sesh data", session_data)
-            session_data = {
+            session_data[0] = {
                     "revolutions": revolutions,
                     "start_time": start_time,
                     "end_time": end_time,
                     "mouseId": tag
                     }
-            r = requests.post('https://hamster-companion.herokuapp.com/new/session', data = session_data)
+            r = requests.post('https://hamster-companion.herokuapp.com/new/session', data = session_data[0])
             print(r.text)
             # return True
-            return session_data
+            return session_data[0]
 
         return False
 
@@ -111,7 +112,7 @@ def tracking():
                     if (rfid_reading == True):
                             if last_rev is not None:
                                     check_close_result = checkClose(last_rev, count, start_time, tag)
-                                    print("session_data before if check close result", session_data)
+                                    # print("session_data before if check close result", session_data)
                                     if check_close_result:
                                             # session = False
                                             # last_rev = None
@@ -119,9 +120,9 @@ def tracking():
                                             # rfid_reading = False
                                             # tag = None
                                             # start_time = None
-                                            print ("session data in if check close result check", session_data)
-                                            return session_data
-                                            
+                                            print ("session data in if check close result check", session_data[0])
+                                            return session_data[0]
+
 
 
 
@@ -142,7 +143,8 @@ def tracking():
         begin()
         try:
             returned = loop()
-            print(returned)
+            print('returned inside try', returned)
+            # print(returned)
             if returned:
                 return jsonify({
                     "session_data": returned
