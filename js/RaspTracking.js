@@ -33,10 +33,11 @@ class RaspTracking extends React.Component {
       } else if(response.data.session_data){
         console.log('calling track animals again')
         this.setState({
-          tracking: false,
           message: 'session data here'//response.data.session_data
+        }, function() {
+          this.trackAnimals()
         })
-        this.trackAnimals()
+
       }
     })
     .catch((error) => {
