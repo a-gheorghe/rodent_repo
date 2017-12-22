@@ -23,7 +23,6 @@ button_pressed = [False]
 def my_callback (channel):
     button_pressed[0] = True
     print("Pressed button")
-    print(GPIO.input(button))
 
 GPIO.add_event_detect(hall, GPIO.RISING)
 GPIO.add_event_detect(button, GPIO.RISING, callback=my_callback, bouncetime= 10000)
@@ -101,14 +100,11 @@ def tracking():
             while (button_pressed[0] == False):
                     if (rfid_reading == False and GPIO.input(rfid)):
                             rfid_reading = True
-                            print("Entering 2")
                             junk1 = ser.read(1)
                             rawtag = ser.read(10)
                             tag = int(rawtag, 16)
                             junk2 = ser.read(5)
-                            print("Entering 3")
                             print('Animal', tag)
-                            print(rfid_reading)
 
                     if (rfid_reading == True):
                             if last_rev is not None:
@@ -122,13 +118,10 @@ def tracking():
                                             start_time = None
 
                             if GPIO.event_detected(hall):
-                                    print('magnet is detected')
                                     if not session:
-                                            print("Entering 4")
                                             session = True
                                             start_time = datetime.now()
                                             print("Session starting at {}".format(start_time))
-                                            print("Entering 5")
                                     count +=0.5
                                     last_rev = datetime.now()
                                     print("Animal {} has run {} revolutions".format(tag, count))
