@@ -23,7 +23,7 @@ class RaspTracking extends React.Component {
     })
     axios.get('/tracking')
     .then((response) => {
-      console.log(response)
+      console.log('TRACKING response',response)
       this.setState({
         tracking: false,
         message: response.data.message
@@ -48,6 +48,7 @@ class RaspTracking extends React.Component {
               <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Back </Link>
               <div className="button-holding">
                 <button className="tracking-button" type="button" onClick={() => this.trackAnimals()}> Start tracking </button>
+                <div> {this.state.message} </div>
               </div>
             </div>
            }
