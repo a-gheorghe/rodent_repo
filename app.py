@@ -29,36 +29,10 @@ GPIO.add_event_detect(hall, GPIO.RISING)
 GPIO.add_event_detect(button, GPIO.RISING, callback=my_callback, bouncetime= 10000)
 
 
-
-
-# @app.route('/raspScan')
-# def scanAnimal():
-#     python code Here
-#     return scannedNumber
-
-# @app.route('/testing')
-# def testing():
-#     code = 5999933
-#     return jsonify({
-#     'tag': code
-#     })
-#
-# @app.route('/raspExperiments/5/B1')
-# def maybe():
-#     return render_template('index.html')
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# for testing /tracking
-# @app.route('/tracking/')
-# def tracking():
-#     session_data = "This is mock session data"
-#     return jsonify({
-#     "message": session_data
-#     })
 
 @app.route('/tracking/')
 def tracking():
@@ -178,10 +152,6 @@ def testing():
     'tag': tag
     })
 
-
-# @app.route('/addAnimal/')
-# def testing():
-#     return "hello"
 
 @app.route('/<path:others>')
 def catch_all(others):

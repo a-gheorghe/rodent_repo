@@ -18,7 +18,14 @@ class RaspTracking extends React.Component {
       endTime: ''
     }
   }
-  
+
+//
+// // NO PI TESTING VERSION
+// trackAnimals(){
+//   console.log("hello")
+// }
+
+
 
   trackAnimals(){
     console.log("tracking")
@@ -32,7 +39,7 @@ class RaspTracking extends React.Component {
         console.log('button pressed, NOT calling trackanimals again')
         this.setState({
           tracking: false,
-          message: 'Button pressed.',
+          message: 'Button pressed: Stopped tracking activity.',
           animal: '',
           revolutions: '',
           startTime: '',
@@ -65,19 +72,27 @@ class RaspTracking extends React.Component {
         return (
           <div className="tracking-body">
             {this.state.tracking ?
-            <div className="running-message"> Animals are running {this.state.message}
-              <div className="message-text">Last session was:</div>
-              <div className="message-text"> Animal: {this.state.animal} </div>
-              <div className="message-text"> Revolutions {this.state.revolutions} </div>
-              <div className="message-text"> Start time {this.state.startTime} </div>
-              <div className="message-text"> End time {this.state.endTime} </div>
+
+            <div className="running-message"> Animals are running
+              <div className="larger-stats-message">
+                <div className="stats-message">
+                  <div className="message-text-title">Last session was:</div>
+                  <div className="result-fields">
+                    <div className="message-text"><label className="tracking-label"> Animal:</label> <div className="valueform"> {this.state.animal}</div> </div>
+                    <div className="message-text"> <label className="tracking-label"> Revolutions: </label> <div className="valueform"> {this.state.revolutions} </div> </div>
+                    <div className="message-text"> <label className="tracking-label"> Start time: </label> <div className="valueform"> {this.state.startTime} </div> </div>
+                    <div className="message-text"> <label className="tracking-label"> End time: </label> <div className="valueform"> {this.state.endTime} </div> </div>
+                  </div>
+                </div>
+              </div>
+              {this.state.message}
             </div> :
 
             <div className="overall">
               <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Back </Link>
               <div className="button-holding">
                 <button className="tracking-button" type="button" onClick={() => this.trackAnimals()}> Start tracking </button>
-                <div className="message-text"> {this.state.message} </div>
+                <div className="actual-message-text"> {this.state.message} </div>
               </div>
             </div>
            }

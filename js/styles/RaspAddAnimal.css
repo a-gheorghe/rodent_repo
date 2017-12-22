@@ -44,7 +44,7 @@ label {
 }
 
 .add-label {
-  display: inline;
+  float: left
 }
 
 .add-inputs {

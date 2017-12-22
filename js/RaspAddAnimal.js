@@ -95,13 +95,13 @@ class RaspAddAnimal extends React.Component {
             <label className="add-label"> RFID: </label> <input className="add-inputs" type="text" name="rfid" value={this.state.rfid} />
 
             {this.state.scanned ? (<form onSubmit={(event) => this.handleSubmit(event)}>
-              <label className="add-label"> ExperimentID: </label> <input className="add-inputs" type="text" name="experimentID" value={this.props.match.params.id}/> <br/>
-              <label className="add-label"> Cage: </label> <input className="add-inputs" type="text" name="cage" defaultValue={this.props.match.params.cageId}/> <br/>
-              <label className="add-label"> Age: </label> <input className="add-inputs" type="text" name="age" value={this.state.age} onChange={this.handleChange.bind(this)} /> <br/>
-              <label className="add-label"> Sex: </label> <input className="add-inputs" type="text" name="sex" value={this.state.sex} onChange={this.handleChange.bind(this)} /> <br/>
-              <label className="add-label"> Notes: </label> <input className="add-inputs" type="text" name="notes" value={this.state.notes} onChange={this.handleChange.bind(this)} /> <br/>
-              <input className="add-label" type="submit" value="Add Animal" />
-              <Link to="/raspTracking">Track Animals</Link>
+            <label className="add-label"> ExperimentID: </label> <input className="add-inputs" type="text" name="experimentID" value={this.props.match.params.id}/> <br/>
+            <label className="add-label"> Cage: </label> <input className="add-inputs" type="text" name="cage" defaultValue={this.props.match.params.cageId}/> <br/>
+            <label className="add-label"> Age: </label> <input className="add-inputs" type="text" name="age" value={this.state.age} onChange={this.handleChange.bind(this)} /> <br/>
+            <label className="add-label"> Sex: </label> <input className="add-inputs" type="text" name="sex" value={this.state.sex} onChange={this.handleChange.bind(this)} /> <br/>
+            <label className="add-label"> Notes: </label> <input className="add-inputs" type="text" name="notes" value={this.state.notes} onChange={this.handleChange.bind(this)} /> <br/>
+            <input className="add-label" type="submit" value="Add Animal" />
+            <Link to="/raspTracking">Track Animals</Link>
 
             </form> ) : ''}
             <div className="message-text">
