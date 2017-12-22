@@ -34,6 +34,8 @@ class RaspAddAnimal extends React.Component {
     .then((response) => {
       this.setState({
         rfid: response.data.tag,
+        id: this.props.match.params.id,
+        cageId: this.props.match.params.cageId,
         scanned: true
       })
     })
