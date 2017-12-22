@@ -25,7 +25,7 @@ class RaspAddAnimal extends React.Component {
   }
 
 
-/ ****** REAL SCAN FUNC ************
+// / ****** REAL SCAN FUNC ************
   scanAnimal(){
     console.log("scanning")
     axios.get('/addAnimal')
