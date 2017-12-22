@@ -30,7 +30,7 @@ class RaspTracking extends React.Component {
 trackAnimals(){
     console.log("tracking")
     this.setState({
-      tracking: true
+      tracking: true,
       message: 'Program is running'
     })
     axios.get('/tracking')
