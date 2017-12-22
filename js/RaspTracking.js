@@ -11,7 +11,7 @@ class RaspTracking extends React.Component {
     super(props);
     this.state = {
       tracking: false,
-      message: 'hey',
+      message: '',
       animal: '',
       revolutions: '',
       startTime: '',
@@ -21,82 +21,74 @@ class RaspTracking extends React.Component {
 
 
 // NO PI TESTING VERSION
+// trackAnimals(){
+//   console.log("hello")
+// }
+
+
+
 trackAnimals(){
-  console.log("hello")
-}
+    console.log("tracking")
+    this.setState({
+      tracking: true,
+      message: 'Program is running'
+    })
+    axios.get('/tracking')
+    .then((response) => {
+      if(response.data.message){
+        this.setState({
+          tracking: false,
+          message: '',
+          animal: '',
+          revolutions: '',
+          startTime: '',
+          endTime: ''
+          //response.data.message
+        })
+      } else if(response.data.session_data){
+        console.log('calling track animals again')
+        this.setState({
+          message: 'Program is running',
+          animal: response.data.session_data.mouseId,
+          revolutions: response.data.session_data.revolutions,
+          startTime: response.data.session_data.start_time,
+          endTime: response.data.session_data.end_time
+        })
+          this.trackAnimals()
 
+      }
+    })
+    .catch((error) => {
+      this.setState({
+        tracking: false,
+      })
+      console.log("oops", error)
+    })
+  }
 
-
-  // trackAnimals(){
-  //   console.log("tracking")
-  //   this.setState({
-  //     tracking: true
-  //   })
-  //   axios.get('/tracking')
-  //   .then((response) => {
-  //     console.log('TRACKING response',response)
-  //     if(response.data.message){
-  //       console.log('button pressed, NOT calling trackanimals again')
-  //       this.setState({
-  //         tracking: false,
-  //         message: 'Button pressed: Stopped tracking activity.',
-  //         animal: '',
-  //         revolutions: '',
-  //         startTime: '',
-  //         endTime: ''
-  //         //response.data.message
-  //       })
-  //     } else if(response.data.session_data){
-  //       console.log('calling track animals again')
-  //       this.setState({
-  //         message: 'session data here',
-  //         animal: response.data.session_data.mouseId,
-  //         revolutions: response.data.session_data.revolutions,
-  //         startTime: response.data.session_data.start_time,
-  //         endTime: response.data.session_data.end_time
-  //       })
-  //         this.trackAnimals()
-  //
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     this.setState({
-  //       tracking: false,
-  //     })
-  //     console.log("oops", error)
-  //   })
-  // }
-  //
 
   render() {
         return (
           <div className="tracking-body">
-            {this.state.tracking ?
-
-            <div className="running-message"> Animals are running
-              <div className="larger-stats-message">
-                <div className="stats-message">
-                  <div className="message-text-title">Last session was:</div>
-                  <div className="result-fields">
-                    <div className="message-text"><label className="tracking-label"> Animal:</label> <div className="valueform"> {this.state.animal}</div> </div>
-                    <div className="message-text"> <label className="tracking-label"> Revolutions: </label> <div className="valueform"> {this.state.revolutions} </div> </div>
-                    <div className="message-text"> <label className="tracking-label"> Start time: </label> <div className="valueform"> {this.state.startTime} </div> </div>
-                    <div className="message-text"> <label className="tracking-label"> End time: </label> <div className="valueform"> {this.state.endTime} </div> </div>
+            <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Back </Link>
+            <div>
+              <div className="message-text-title">  {this.state.message} </div>
+              {this.state.tracking ?
+                <div className="form-box">
+                  <div className="form-style-3">
+                    <form>
+                      <fieldset>
+                        <legend>Previous Session Info</legend>
+                        <label htmlFor="field1"><span>Animal</span><input type="text" className="input-field" name="field1" value={this.state.animal} /></label>
+                        <label htmlFor="field2"><span>Time Started </span><input type="email" className="input-field" name="field2" value={this.state.startTime} /></label>
+                        <label htmlFor="field3"><span>Time Ended </span><input type="text" className="input-field" name="field3" value={this.state.endTime} /></label>
+                        <label htmlFor="field4"><span>Revolutions </span><input type="text" className="input-field" name="field4" value={this.state.revolutions} /></label>
+                      </fieldset>
+                    </form>
                   </div>
-                </div>
-              </div>
-              {this.state.message}
-            </div> :
-
-            <div className="overall">
-              <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Back </Link>
-              <div className="button-holding">
-                <button className="tracking-button" type="button" onClick={() => this.trackAnimals()}> Start tracking </button>
-                <div className="actual-message-text"> {this.state.message} </div>
+                </div> : <button className="tracking-button" type="button" onClick={() => this.trackAnimals()}> Start Tracking </button> }
               </div>
             </div>
-           }
-          </div>
         );
   }
 };
