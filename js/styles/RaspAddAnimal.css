@@ -43,6 +43,10 @@ label {
   font-size: 20px;
 }
 
+.add-label {
+  display: inline;
+}
+
 .add-inputs {
   display: block;
   font-size: 14px;
@@ -56,7 +60,7 @@ label {
 
 .add-button {
   opacity: .99;
-  width:120px;
+  width:150px;
   height: 80px;
   background: #0074D9;
 
