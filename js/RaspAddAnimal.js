@@ -67,7 +67,7 @@ class RaspAddAnimal extends React.Component {
       "age": this.state.age,
       "notes": this.state.notes,
       "cageId": this.props.match.params.cageId,
-      "experimentId": this.props.match.params.id,
+      // "experimentId": this.props.match.params.id,
       "id": this.state.rfid
     })
     .then((response) => {
