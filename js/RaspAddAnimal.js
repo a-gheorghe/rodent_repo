@@ -89,7 +89,7 @@ class RaspAddAnimal extends React.Component {
   render() {
         return (
           <div className="add-body">
-            <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Go Back to Options </Link>
+            <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Back </Link>
             <div className="add-title"> Add a New Animal </div>
             <button className="add-button" type="button" onClick={() => this.scanAnimal()}> Scan animal </button>
             <label> RFID: </label> <input className="add-inputs" type="text" name="rfid" value={this.state.rfid} />
