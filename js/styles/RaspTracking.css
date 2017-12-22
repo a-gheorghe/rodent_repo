@@ -6,7 +6,11 @@
 }
 
 .button-holding {
-  flex:1;
+  flex:0.9;
+  display: flex;
+}
+
+.overall {
   display: flex;
 }
 
@@ -15,6 +19,7 @@
   opacity: .99;
   width:120px;
   background: #0074D9;
+  flex: 0.1
 
   box-shadow: inset 0 1px 2px rgba(255,255,255, .35), 0px 1px 6px rgba(0,246,255,.5);
   border: 1px solid #0a5378;

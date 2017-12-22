@@ -43,11 +43,10 @@ class RaspTracking extends React.Component {
           <div className="tracking-body">
             {this.state.tracking ?
             <div> Animals are running </div> :
-            <div>
+            <div className="overall">
               <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Go Back to Options </Link>
               <div className="button-holding">
                 <button className="tracking-button" type="button" onClick={() => this.trackAnimals()}> Start tracking </button>
-                <div> Last session was:{this.state.message} </div>
               </div>
             </div> }
           </div>
