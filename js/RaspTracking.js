@@ -10,8 +10,8 @@ class RaspTracking extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tracking: true,
-      message: 'Program is running',
+      tracking: false,
+      message: '',
       animal: '',
       revolutions: '',
       startTime: '',
@@ -31,15 +31,14 @@ trackAnimals(){
     console.log("tracking")
     this.setState({
       tracking: true
+      message: 'Program is running'
     })
     axios.get('/tracking')
     .then((response) => {
-      console.log('TRACKING response',response)
       if(response.data.message){
-        console.log('button pressed, NOT calling trackanimals again')
         this.setState({
           tracking: false,
-          message: 'Button pressed: Stopped tracking activity.',
+          message: '',
           animal: '',
           revolutions: '',
           startTime: '',
@@ -49,7 +48,7 @@ trackAnimals(){
       } else if(response.data.session_data){
         console.log('calling track animals again')
         this.setState({
-          message: 'session data here',
+          message: 'Program is running',
           animal: response.data.session_data.mouseId,
           revolutions: response.data.session_data.revolutions,
           startTime: response.data.session_data.start_time,
