@@ -47,9 +47,8 @@ class RaspTracking extends React.Component {
           revolutions: response.data.session_data.revolutions,
           startTime: response.data.session_data.start_time,
           endTime: response.data.session_data.end_time
-        }, function() {
-          this.trackAnimals()
         })
+          this.trackAnimals()
 
       }
     })
