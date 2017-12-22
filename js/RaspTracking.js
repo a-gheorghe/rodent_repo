@@ -26,7 +26,7 @@ class RaspTracking extends React.Component {
       console.log('TRACKING response',response)
       this.setState({
         tracking: false,
-        message: response.data.message
+        message: response.data
       })
     })
     .catch((error) => {

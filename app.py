@@ -18,6 +18,7 @@ GPIO.setup(button, GPIO.IN)
 GPIO.setup(rfid, GPIO.IN)
 
 button_pressed = [False]
+session_data= {}
 
 #
 def my_callback (channel):
@@ -63,7 +64,7 @@ def index():
 def tracking():
     ser = serial.Serial('/dev/serial0', 9600)
     button_pressed[0] = False
-    # session_data = False
+    session_data = {}
 
 
 
@@ -85,7 +86,8 @@ def tracking():
                     }
             r = requests.post('https://hamster-companion.herokuapp.com/new/session', data = session_data)
             print(r.text)
-            return True
+            # return True
+            return session_data
 
         return False
 
@@ -110,12 +112,16 @@ def tracking():
                             if last_rev is not None:
                                     check_close_result = checkClose(last_rev, count, start_time, tag)
                                     if check_close_result:
-                                            session = False
-                                            last_rev = None
-                                            count = 0
-                                            rfid_reading = False
-                                            tag = None
-                                            start_time = None
+                                            # session = False
+                                            # last_rev = None
+                                            # count = 0
+                                            # rfid_reading = False
+                                            # tag = None
+                                            # start_time = None
+                                            return jsonify({
+                                            "session_data": session_data
+                                            })
+
 
                             if GPIO.event_detected(hall):
                                     if not session:
