@@ -6,16 +6,14 @@
   text-align: center;
 }
 
-.running-message {
+/* .running-message {
   font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
   font-weight:bold;
   font-size: 40px;
   text-shadow: 0px 1px 2px rgba(255,255,255,.5);
   color: #0074D9;
-  /* line-height: 50px; */
   padding: 35px;
   flex: 1;
-  /* position: absolute */
 }
 
 .larger-stats-message {
@@ -28,9 +26,7 @@
   height: 180px;
   border-radius: 20px;
   display: flex;
-  /* align-items: center; */
   flex-direction: row;
-  /* justify-content: center; */
 }
 
 .tracking-label {
@@ -42,8 +38,6 @@
 }
 
 .stats-message {
-  /* justify-content: center;
-  align-items: center; */
   flex: 1;
   background-color: #7FDBFF;
   margin: 10px;
@@ -97,16 +91,7 @@
   font-size: 20px;
 }
 
-.actual-message-text {
-  font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
-  font-weight:bold;
-  font-size: 40px;
-  text-shadow: 0px 1px 2px rgba(255,255,255,.5);
-  color: #0074D9;
-  /* line-height: 50px; */
-  padding: 35px;
-  flex: 1;
-}
+
 
 .overall {
   flex: 1;
@@ -135,16 +120,26 @@
   height: 50px;
   line-height: 50px;
   display: inline-block;
+} */
+
+
+.message-text-title {
+  font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
+  font-size: 40px;
+  text-shadow: 0px 1px 2px rgba(255,255,255,.5);
+  color: #0074D9;
+  text-align:center;
+  margin-top: 50px;
+  flex: 1
 }
 
 .tracking-button {
   background-color:blue;
-  margin: 150px;
+  margin: 250px;
   flex: 1;
   opacity: .99;
-  /* width:120px; */
   background: #0074D9;
-  height: 150px;
+  height: 120px;
   text-align: center;
   line-height: 150px;
   box-shadow: inset 0 1px 2px rgba(255,255,255, .35), 0px 1px 6px rgba(0,246,255,.5);
@@ -154,4 +149,125 @@
   font-size: 40px;
   cursor: pointer;
   text-shadow:0px -1px 0px rgba(0,0,0,.5);
+}
+
+/* NEW BELOW */
+.page-box {
+  height: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.form-box {
+  background-color: #0074D9;
+  box-shadow: 1px 1px 2px 1px;
+  width: 480px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  border: none;
+  flex: 10
+}
+
+.submit-button {
+  background-color: #0074D9;
+}
+
+.form-style-3{
+    max-width: 450px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 20px;
+    margin-top: 30px
+}
+
+.form-style-3 label{
+    display:block;
+    margin-bottom: 10px;
+}
+
+.form-style-3 label > span{
+    float: left;
+    width: 140px;
+    color: #0074D9;
+    font-weight: bold;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px #fff;
+}
+.form-style-3 fieldset{
+  text-align: right;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 0px 0px 10px 0px;
+    border: 1px solid #0074D9;
+    padding: 20px;
+    background: #7FDBFF;
+    box-shadow: inset 0px 0px 15px #FFE5E5;
+    -moz-box-shadow: inset 0px 0px 15px #FFE5E5;
+    -webkit-box-shadow: inset 0px 0px 15px #FFE5E5;
+}
+.form-style-3 fieldset legend{
+    color: #0074D9;
+    border-top: 1px solid #FFD2D2;
+    border-left: 1px solid #FFD2D2;
+    border-right: 1px solid #FFD2D2;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    background: #FFF4F4;
+    padding: 0px 8px 3px 8px;
+    box-shadow: -0px -1px 2px #F1F1F1;
+    -moz-box-shadow:-0px -1px 2px #F1F1F1;
+    -webkit-box-shadow:-0px -1px 2px #F1F1F1;
+    font-weight: normal;
+    font-size: 12px;
+}
+.form-style-3 textarea{
+    width:250px;
+    height:100px;
+}
+.form-style-3 input[type=text],
+.form-style-3 input[type=date],
+.form-style-3 input[type=datetime],
+.form-style-3 input[type=number],
+.form-style-3 input[type=search],
+.form-style-3 input[type=time],
+.form-style-3 input[type=url],
+.form-style-3 input[type=email],
+.form-style-3 select,
+.form-style-3 textarea{
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #FFC2DC;
+    outline: none;
+    color: #0074D9;
+    padding: 5px 8px 5px 8px;
+    box-shadow: inset 1px 1px 4px #FFD5E7;
+    -moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+    -webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+    background: #FFEFF6;
+    width:50%;
+}
+
+
+.form-style-3  input[type=submit],
+.form-style-3  input[type=button]{
+    background: #EB3B88;
+    border: 1px solid #C94A81;
+    padding: 5px 15px 5px 15px;
+    color:#0074D9;
+    box-shadow: inset -1px -1px 3px #FF62A7;
+    -moz-box-shadow: inset -1px -1px 3px #FF62A7;
+    -webkit-box-shadow: inset -1px -1px 3px #FF62A7;
+    border-radius: 3px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    font-weight: bold;
+}
+.required{
+    color:red;
+    font-weight:normal;
 }
