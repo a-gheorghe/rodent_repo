@@ -61,6 +61,7 @@ class RaspAddAnimal extends React.Component {
     console.log('this.props inside handleSubmit', this.props)
     event.preventDefault();
     console.log("sending to database")
+    console.log("experimentId is", this.props.match.params.id)
     axios.post('https://hamster-companion.herokuapp.com/new/mouse', {
       "sex": this.state.sex,
       "age": this.state.age,
