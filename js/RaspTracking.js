@@ -82,7 +82,7 @@ trackAnimals(){
                         <label htmlFor="field1"><span>Animal</span><input type="text" className="input-field" name="field1" value={this.state.animal} /></label>
                         <label htmlFor="field2"><span>Time Started </span><input type="email" className="input-field" name="field2" value={this.state.startTime} /></label>
                         <label htmlFor="field3"><span>Time Ended </span><input type="text" className="input-field" name="field3" value={this.state.endTime} /></label>
-                        <label htmlFor="field4"><span>Time Ended </span><input type="text" className="input-field" name="field4" value={this.state.revolutions} /></label>
+                        <label htmlFor="field4"><span>Revolutions </span><input type="text" className="input-field" name="field4" value={this.state.revolutions} /></label>
                       </fieldset>
                     </form>
                   </div>
