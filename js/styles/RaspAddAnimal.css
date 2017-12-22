@@ -6,6 +6,10 @@
   height: 100%
 }
 
+.message-text {
+  color: white;
+}
+
 .add-title{
   font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
   font-weight:bold;
