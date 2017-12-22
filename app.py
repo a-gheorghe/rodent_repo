@@ -118,9 +118,8 @@ def tracking():
                                             # rfid_reading = False
                                             # tag = None
                                             # start_time = None
-                                            return jsonify({
-                                            "session_data": session_data
-                                            })
+                                            return session_data
+
 
 
                             if GPIO.event_detected(hall):
@@ -139,7 +138,12 @@ def tracking():
     if __name__=='__main__':
         begin()
         try:
-            loop()
+            returned = loop()
+            print(returned)
+            if returned:
+                return jsonify({
+                    "session_data": returned
+                })
             return jsonify({
                 "message": "This is mock session data"
                 })
