@@ -12,6 +12,7 @@
 
 .overall {
   display: flex;
+  flex-direction: column;
 }
 
 .link-tag {
