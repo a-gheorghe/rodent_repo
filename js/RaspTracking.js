@@ -28,7 +28,7 @@ class RaspTracking extends React.Component {
         console.log('button pressed, NOT calling trackanimals again')
         this.setState({
           tracking: false,
-          message: response.data.message
+          message: 'here is a message'//response.data.message
         })
       } else if(response.data.session_data){
         console.log('calling track animals again')
