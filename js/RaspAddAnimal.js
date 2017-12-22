@@ -112,20 +112,22 @@ class RaspAddAnimal extends React.Component {
                   <span>Cage ID <span className="required">*</span></span>
                   <input onChange={e => this.handleChange(e)} type="text" name="cageId" value={this.state.cageId} />
                 </label>
-                <label htmlFor="sex" id="sex-option">
+                <label htmlFor="sex">
                   <span>Sex <span className="required">*</span></span>
+                  <span id="sex-option">  
                   <input onChange={e => this.handleChange(e)} type="radio" name="sex" value="M" checked={this.state.sex === 'M'} />
                   <p>Male</p>
                   <input onChange={e => this.handleChange(e)} type="radio" name="sex" value="F" checked={this.state.sex === 'F'} />
                   <p>Female</p>
+                </span>
                 </label>
                 <label htmlFor="age">
                   <span>Age <span className="required">*</span></span>
                   <input onChange={e => this.handleChange(e)} type="number" name="age" value={this.state.age} />
                 </label>
                 <label htmlFor="notes">
-                  <span>Notes   </span>
-                  <textarea name="notes" rows="5" cols="20" onChange={e => this.handleChange(e)} value={this.state.notes}></textarea>
+                  <span>Notes</span>
+                  <input type="text" name="notes" rows="5" cols="20" onChange={e => this.handleChange(e)} value={this.state.notes} />
                 </label>
                 <input style={{ backgroundColor: '#0074D9' }} type="submit" value="Add Animal" />
               </fieldset>

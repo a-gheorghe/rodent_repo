@@ -1,14 +1,20 @@
 body {
   font-family: 'Myriad Pro', 'Helvetica Neue', Helvetica;
   margin: 0;
+  background-color: black;
 }
 
 input {
   display: inline;
 }
 
+h1 {
+  font-size: 40px;
+  color: #7FDBFF;
+  padding-top: 20px;
+}
+
 .page-box {
-  background-color: black;
   height: 100%;
   align-items: center;
   text-align: center;
@@ -18,14 +24,17 @@ input {
 #sex-option {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin: 10px auto;
+  width: 240px;
+  /* padding-right: 75px; */
 }
 
 .form-box {
   border: 1px solid white;
-  /* border: 2px solid green; */
   background-color: #0074D9;
   box-shadow: 1px 1px 2px 1px;
-  width: 480px;
+  width: 600px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -39,7 +48,7 @@ input {
 }
 
 .form-style-3 {
-  max-width: 450px;
+  width: 90%;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   margin: 20px;
   margin-top: 30px
@@ -48,6 +57,9 @@ input {
 .form-style-3 label {
   display: block;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 p {
@@ -103,7 +115,7 @@ p {
   height: 100px;
 } */
 
-.form-style-3 input[type=text], .form-style-3 input[type=date], .form-style-3 input[type=datetime], .form-style-3 input[type=number], .form-style-3 input[type=search], .form-style-3 input[type=time], .form-style-3 input[type=url], .form-style-3 input[type=email], .form-style-3 select, .form-style-3 textarea {
+/* .form-style-3 input[type=text], .form-style-3 input[type=date], .form-style-3 input[type=datetime], .form-style-3 input[type=number], .form-style-3 input[type=search], .form-style-3 input[type=time], .form-style-3 input[type=url], .form-style-3 input[type=email], .form-style-3 select, .form-style-3 textarea {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -116,7 +128,7 @@ p {
   -webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
   background: #FFEFF6;
   width: 50%;
-}
+} */
 
 .form-style-3 input[type=radio] {
   width: auto;
