@@ -42,7 +42,7 @@ class RaspTracking extends React.Component {
         return (
           <div className="tracking-body">
             {this.state.tracking ?
-            <div> Animals are running </div> :
+            <div className="running-message"> Animals are running </div> :
 
             <div className="overall">
               <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Go Back to Options </Link>
