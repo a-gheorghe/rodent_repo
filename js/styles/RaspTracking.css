@@ -11,6 +11,10 @@
   display: flex;
 }
 
+.message-text {
+  color: white;
+}
+
 .running-message {
   font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
   font-weight:bold;
