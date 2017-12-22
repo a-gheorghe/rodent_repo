@@ -25,17 +25,18 @@ class RaspTracking extends React.Component {
     .then((response) => {
       console.log('TRACKING response',response)
       if(response.data.message){
-        console.log('received response.data.message')
+        console.log('button pressed, NOT calling trackanimals again')
         this.setState({
           tracking: false,
           message: response.data.message
         })
       } else if(response.data.session_data){
-        console.log('received response.data.session_data')
+        console.log('calling track animals again')
         this.setState({
           tracking: false,
-          message: response.data.session_data
+          message: 'session data here'//response.data.session_data
         })
+        this.trackAnimals()
       }
     })
     .catch((error) => {
