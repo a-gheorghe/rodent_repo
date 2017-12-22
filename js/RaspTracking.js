@@ -21,52 +21,52 @@ class RaspTracking extends React.Component {
 
 
 // NO PI TESTING VERSION
-// trackAnimals(){
-//   console.log("hello")
-// }
+trackAnimals(){
+  console.log("hello")
+}
 
 
 
-  trackAnimals(){
-    console.log("tracking")
-    this.setState({
-      tracking: true
-    })
-    axios.get('/tracking')
-    .then((response) => {
-      console.log('TRACKING response',response)
-      if(response.data.message){
-        console.log('button pressed, NOT calling trackanimals again')
-        this.setState({
-          tracking: false,
-          message: 'Button pressed: Stopped tracking activity.',
-          animal: '',
-          revolutions: '',
-          startTime: '',
-          endTime: ''
-          //response.data.message
-        })
-      } else if(response.data.session_data){
-        console.log('calling track animals again')
-        this.setState({
-          message: 'session data here',
-          animal: response.data.session_data.mouseId,
-          revolutions: response.data.session_data.revolutions,
-          startTime: response.data.session_data.start_time,
-          endTime: response.data.session_data.end_time
-        })
-          this.trackAnimals()
-
-      }
-    })
-    .catch((error) => {
-      this.setState({
-        tracking: false,
-      })
-      console.log("oops", error)
-    })
-  }
-
+  // trackAnimals(){
+  //   console.log("tracking")
+  //   this.setState({
+  //     tracking: true
+  //   })
+  //   axios.get('/tracking')
+  //   .then((response) => {
+  //     console.log('TRACKING response',response)
+  //     if(response.data.message){
+  //       console.log('button pressed, NOT calling trackanimals again')
+  //       this.setState({
+  //         tracking: false,
+  //         message: 'Button pressed: Stopped tracking activity.',
+  //         animal: '',
+  //         revolutions: '',
+  //         startTime: '',
+  //         endTime: ''
+  //         //response.data.message
+  //       })
+  //     } else if(response.data.session_data){
+  //       console.log('calling track animals again')
+  //       this.setState({
+  //         message: 'session data here',
+  //         animal: response.data.session_data.mouseId,
+  //         revolutions: response.data.session_data.revolutions,
+  //         startTime: response.data.session_data.start_time,
+  //         endTime: response.data.session_data.end_time
+  //       })
+  //         this.trackAnimals()
+  //
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     this.setState({
+  //       tracking: false,
+  //     })
+  //     console.log("oops", error)
+  //   })
+  // }
+  //
 
   render() {
         return (

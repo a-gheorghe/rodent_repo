@@ -34,8 +34,9 @@
   height: 137px;
   padding: 10px 20px 0px 0px;
   flex: 0.1;
-  position: relative;
+  position: absolute;
   top: 2px;
+
   right: 30px;
 }
 
@@ -67,7 +68,7 @@
   height: 280px;
   position: relative;
   top: 80px;
-  left: 410px;
+  left: 440px;
 }
 
 .login-link {
