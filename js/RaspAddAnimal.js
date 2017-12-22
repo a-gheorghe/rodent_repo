@@ -106,7 +106,7 @@ class RaspAddAnimal extends React.Component {
               <Link to="/raspTracking">Track Animals</Link>
 
             </form> ) : ''}
-            {this.state.message ? <p> {this.state.message} </p> : ''}
+            Message: {this.state.message ? <p> {this.state.message} </p> : ''}
           </div>
         );
   }
