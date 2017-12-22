@@ -11,7 +11,11 @@ class RaspTracking extends React.Component {
     super(props);
     this.state = {
       tracking: false,
-      message: ''
+      message: '',
+      animal: '',
+      revolutions: '',
+      startTime: '',
+      endTime: ''
     }
   }
 
@@ -28,12 +32,21 @@ class RaspTracking extends React.Component {
         console.log('button pressed, NOT calling trackanimals again')
         this.setState({
           tracking: false,
-          message: 'here is a message'//response.data.message
+          message: 'Button pressed.',
+          animal: '',
+          revolutions: '',
+          startTime: '',
+          endTime: ''
+          //response.data.message
         })
       } else if(response.data.session_data){
         console.log('calling track animals again')
         this.setState({
-          message: 'session data here'//response.data.session_data
+          message: 'session data here',
+          animal: response.data.session_data.mouseId,
+          revolutions: response.data.session_data.revolutions,
+          startTime: response.data.session_data.start_time,
+          endTime: response.data.session_data.end_time
         }, function() {
           this.trackAnimals()
         })
@@ -53,7 +66,13 @@ class RaspTracking extends React.Component {
         return (
           <div className="tracking-body">
             {this.state.tracking ?
-            <div className="running-message"> Animals are running {this.state.message} </div> :
+            <div className="running-message"> Animals are running {this.state.message}
+              <div className="message-text">Last session was:</div>
+              <div className="message-text"> Animal: {this.state.animal} </div>
+              <div className="message-text"> Revolutions {this.state.revolutions} </div>
+              <div className="message-text"> Start time {this.state.startTime} </div>
+              <div className="message-text"> End time {this.state.endTime} </div>
+            </div> :
 
             <div className="overall">
               <Link className="link-tag" to={`/raspExperiments/${this.props.match.params.id}/${this.props.match.params.cageId}`}> Back </Link>
