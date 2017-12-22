@@ -26,30 +26,30 @@ class RaspAddAnimal extends React.Component {
 
 
   // / ****** REAL SCAN FUNC ************
-  // scanAnimal(){
-  //   this.setState({
-  //     message: ''
-  //   })
-  //   axios.get('/addAnimal')
-  //   .then((response) => {
-  //     this.setState({
-  //       rfid: response.data.tag,
-  //       scanned: true
-  //     })
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // }
-
-  // practice scan for no pi
   scanAnimal(){
-    console.log("scanning")
     this.setState({
-      rfid: 98347893,
-      scanned: true
+      message: ''
+    })
+    axios.get('/addAnimal')
+    .then((response) => {
+      this.setState({
+        rfid: response.data.tag,
+        scanned: true
+      })
+    })
+    .catch((error) => {
+      console.log(error)
     })
   }
+
+  // practice scan for no pi
+  // scanAnimal(){
+  //   console.log("scanning")
+  //   this.setState({
+  //     rfid: 98347893,
+  //     scanned: true
+  //   })
+  // }
 
 
 
@@ -114,7 +114,7 @@ class RaspAddAnimal extends React.Component {
                 </label>
                 <label htmlFor="sex">
                   <span>Sex <span className="required">*</span></span>
-                  <span id="sex-option">  
+                  <span id="sex-option">
                   <input onChange={e => this.handleChange(e)} type="radio" name="sex" value="M" checked={this.state.sex === 'M'} />
                   <p>Male</p>
                   <input onChange={e => this.handleChange(e)} type="radio" name="sex" value="F" checked={this.state.sex === 'F'} />
