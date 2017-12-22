@@ -24,10 +24,19 @@ class RaspTracking extends React.Component {
     axios.get('/tracking')
     .then((response) => {
       console.log('TRACKING response',response)
-      this.setState({
-        tracking: false,
-        message: response.data
-      })
+      if(response.data.message){
+        console.log('received response.data.message')
+        this.setState({
+          tracking: false,
+          message: response.data.message
+        })
+      } else if(response.data.session_data){
+        console.log('received response.data.session_data')
+        this.setState({
+          tracking: false,
+          message: response.data.session_data
+        })
+      }
     })
     .catch((error) => {
       this.setState({
