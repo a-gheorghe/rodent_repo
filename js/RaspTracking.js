@@ -18,7 +18,7 @@ class RaspTracking extends React.Component {
       endTime: ''
     }
   }
-
+  
 
   trackAnimals(){
     console.log("tracking")
