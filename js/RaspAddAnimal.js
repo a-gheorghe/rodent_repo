@@ -27,7 +27,9 @@ class RaspAddAnimal extends React.Component {
 
 // / ****** REAL SCAN FUNC ************
   scanAnimal(){
-    console.log("scanning")
+    this.setState({
+      message: ''
+    })
     axios.get('/addAnimal')
     .then((response) => {
       this.setState({
@@ -58,10 +60,7 @@ class RaspAddAnimal extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('this.props inside handleSubmit', this.props)
     event.preventDefault();
-    console.log("sending to database")
-    console.log("experimentId is", this.props.match.params.id)
     axios.post('https://hamster-companion.herokuapp.com/new/mouse', {
       "sex": this.state.sex,
       "age": this.state.age,
@@ -89,7 +88,6 @@ class RaspAddAnimal extends React.Component {
 
 
   render() {
-    console.log('adding animals this.props', this.props)
         return (
           <div className="add-body">
             <div className="add-title"> Add a New Animal </div>
