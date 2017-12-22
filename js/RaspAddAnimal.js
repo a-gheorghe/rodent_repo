@@ -66,7 +66,6 @@ class RaspAddAnimal extends React.Component {
       "age": this.state.age,
       "notes": this.state.notes,
       "cageId": this.props.match.params.cageId,
-      // "experimentId": this.props.match.params.id,
       "id": this.state.rfid
     })
     .then((response) => {
@@ -105,7 +104,7 @@ class RaspAddAnimal extends React.Component {
 
             </form> ) : ''}
             <div className="message-text">
-              Message: {this.state.message ? <p> {this.state.message} </p> : <p> There is no messagge</p> }
+              {this.state.message ? <p> {this.state.message} </p> : '' }
             </div>
           </div>
         );
