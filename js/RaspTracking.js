@@ -11,7 +11,7 @@ class RaspTracking extends React.Component {
     super(props);
     this.state = {
       tracking: false,
-      message: '',
+      message: 'hey',
       animal: '',
       revolutions: '',
       startTime: '',
@@ -19,8 +19,8 @@ class RaspTracking extends React.Component {
     }
   }
 
-//
-// // NO PI TESTING VERSION
+
+// NO PI TESTING VERSION
 // trackAnimals(){
 //   console.log("hello")
 // }

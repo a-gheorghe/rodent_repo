@@ -18,8 +18,8 @@ class RaspHome extends React.Component {
           <div className="bottom-two-thirds">
             <div className="home-middle-third"> Raspberry Pi Interface </div>
             <div className="home-bottom-third">
-                <img className="main-picture" src={'http://vectorlogo4u.com/wp-content/uploads/2016/02/RASPBERRY-PI-LOGO-VECTOR.png'}>
-                <Link className="login-link" to="/raspLogin">Login</Link> </img>
+                <img className="main-picture" src={'https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/Raspberry_Pi_Logo.svg/411px-Raspberry_Pi_Logo.svg.png'}/>
+                <Link className="login-link" to="/raspLogin">Login</Link>
             </div>
           </div>
         </div>
