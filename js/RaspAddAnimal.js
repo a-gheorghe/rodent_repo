@@ -20,7 +20,9 @@ class RaspAddAnimal extends React.Component {
       sex: '',
       notes:'',
       scanned: false,
-      message: ''
+      message: '',
+      id: '',
+      cageId: ''
     }
   }
 
@@ -38,6 +40,7 @@ class RaspAddAnimal extends React.Component {
         rfid: response.data.tag,
         id: this.props.match.params.id,
         cageId: this.props.match.params.cageId,
+
         scanned: true
       })
     })
@@ -79,6 +82,8 @@ class RaspAddAnimal extends React.Component {
         age: '',
         sex: '',
         notes:'',
+        cageId:'',
+        id:,
         scanned: false,
       })
     })
