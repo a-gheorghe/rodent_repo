@@ -27,11 +27,13 @@ class RaspAddAnimal extends React.Component {
 
   // / ****** REAL SCAN FUNC ************
   scanAnimal(){
+      console.log("LOOK HERE HERE HERHER HERHERHE")
     this.setState({
       message: ''
     })
     axios.get('/addAnimal')
     .then((response) => {
+        console.log("response.data", response.data)
       this.setState({
         rfid: response.data.tag,
         id: this.props.match.params.id,
