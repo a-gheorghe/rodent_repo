@@ -80,6 +80,8 @@ class RaspAddAnimal extends React.Component {
         age: '',
         sex: '',
         notes:'',
+        cageId:'',
+        id:,
         scanned: false,
       })
     })
