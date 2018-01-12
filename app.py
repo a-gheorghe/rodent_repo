@@ -86,19 +86,9 @@ def tracking():
                     if (rfid_reading == True):
                             if last_rev is not None:
                                     check_close_result = checkClose(last_rev, count, start_time, tag)
-                                    # print("session_data before if check close result", session_data)
                                     if check_close_result:
-                                            # session = False
-                                            # last_rev = None
-                                            # count = 0
-                                            # rfid_reading = False
-                                            # tag = None
-                                            # start_time = None
                                             print ("session data in if check close result check", session_data[0])
                                             return session_data[0]
-
-
-
 
                             if GPIO.event_detected(hall):
                                     if not session:
