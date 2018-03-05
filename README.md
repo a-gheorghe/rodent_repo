@@ -25,6 +25,8 @@ The user must be registered through the companion app at http://hamster-companio
 
 After logging in, the user will be able to see all experiments they're currently involved id, and will also have the option to create a new experiment. 
 
+![alt text](https://github.com/a-gheorghe/rodent_repo/blob/master/screenshots/login.png)
+
 
 
 
