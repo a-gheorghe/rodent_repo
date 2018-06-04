@@ -1,7 +1,7 @@
 
 # rodent_repo
 
-This repo contains code that works alongside the code in the repo <b> official_hamstercompanion </b>. In this project, we created the hardware and software to track rodent running behaviour for use in a research setting. 
+This repo contains code that works alongside the code in the repo <b> <a href="https://github.com/a-gheorghe/official_hamstercompanion"> official_hamstercompanion </a></b>. In this project, we created the hardware and software to track rodent running behaviour for use in a research setting. 
 
 The project consists of two apps: 
 1. The Raspberry Pi (RPi) app (this repo) 
